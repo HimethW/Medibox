@@ -11,6 +11,6 @@ extern bool humidityHigh;
 extern bool humidityLow;
 
 // Function declaration
-void print_line(String message, int column, int row, int textSize);
+void print_line(String message, int column, int row, int textSize, bool selected = false);
 
 #endif  // DISPLAY_UTILS_H

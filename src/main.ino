@@ -69,8 +69,10 @@ unsigned long timeNow = 0;
 unsigned long timeLast = 0;
 
 int current_mode = 0;
-int max_modes = 4;
-String modes[] = {"1 - Set TimeZone", "2 - Set Alarm 1", "3 - Set Alarm 2", "4 - Disable Alarms"};
+int max_modes = 3;
+int alarm_options = 2;
+String modes[] = {"1)TimeZone", "2)Alarm 1", "3)Alarm 2"};
+String alarm_modes[] = {"1)Set Time", "2)Delete"};
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 DHTesp dhtSensor;
@@ -375,20 +377,23 @@ void run_mode(int mode){
 }
 
 void go_to_menu(){
+  current_mode = 0;
   while(digitalRead(PB_cancel) == HIGH){
     display.clearDisplay();
-    Serial.println("cleared");
-    print_line(modes[current_mode],0,0,2);
-    Serial.println("printed");
+    //Serial.println("cleared");
+    print_line(modes[current_mode],0,0,2,true);
+    int nextMode = (current_mode + 1) % max_modes;
+    print_line(modes[nextMode],0,40,2,false);
+    //Serial.println("printed");
     int pressed = wait_for_button_press();
-    Serial.println("pressed");
+    //Serial.println("pressed");
 
     switch (pressed)
     {
-    case PB_UP:
+    case PB_DOWN:
       current_mode = (current_mode + 1) % max_modes;
       break;
-    case PB_DOWN:
+    case PB_UP:
       current_mode -= 1;
       if(current_mode < 0){
         current_mode = max_modes - 1;
