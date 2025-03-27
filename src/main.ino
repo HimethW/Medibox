@@ -435,27 +435,32 @@ void goto_alarm_menu(int alarm){
     if(alarm_enabled[alarm]){
       print_line("Enabled: ",0,0,1);
       print_line(String(alarm_hours[alarm]) + ":" + String(alarm_minutes[alarm]),60,0,2);
+      print_line("Alarm " + String(alarm+1),0,10,1);
     }else{
       print_line("Not Set",0,0,2);
     }
 
-    print_line(alarm_modes[current_mode],0,20,2,true);
-    int nextMode = (current_mode + 1) % alarm_options;
+    print_line(alarm_modes[0],0,20,2, current_mode == 0? true : false);
+    
 
     if(alarm_enabled[alarm]){
-      print_line(alarm_modes[nextMode],0,40,2,false);
+      print_line(alarm_modes[1],0,40,2,current_mode == 1? true : false);
     }
     int pressed = wait_for_button_press();
 
     switch (pressed)
     {
     case PB_DOWN:
-      current_mode = (current_mode + 1) % alarm_options;
+      if(alarm_enabled[alarm]){
+        current_mode = (current_mode + 1) % alarm_options;
+      }
       break;
     case PB_UP:
-      current_mode -= 1;
-      if(current_mode < 0){
-        current_mode = alarm_options - 1;
+      if(alarm_enabled[alarm]){
+        current_mode -= 1;
+        if(current_mode < 0){
+          current_mode = alarm_options - 1;
+        }
       }
       break;
     case PB_OK:
@@ -467,6 +472,7 @@ void goto_alarm_menu(int alarm){
         display.clearDisplay();
         print_line("Alarm deleted",0,0,2);
         delay(500);
+        current_mode = 0;
       }
       break;
     case PB_cancel:
