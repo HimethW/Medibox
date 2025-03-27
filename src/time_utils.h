@@ -22,6 +22,6 @@ void update_time_wifi();
 void print_time_now();
 
 // External function declaration (used by update_time_with_check_alarm)
-void ring_alarm();
+void ring_alarm(int alarm);
 
 #endif  // TIME_UTILS_H

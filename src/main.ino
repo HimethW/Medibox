@@ -121,7 +121,7 @@ void setup() {
 
    
 
-void ring_alarm(){
+void ring_alarm(int alarm){
   //Serial.println("came here");
   //Serial.println(digitalRead(PB_cancel)==HIGH);
   bool break_happend = false;
@@ -149,7 +149,8 @@ void ring_alarm(){
   }
   
   digitalWrite(LED_1, LOW);
-  display.clearDisplay();
+  // display.clearDisplay();
+  goto_stopping_menu(alarm);
   
   
   
@@ -434,6 +435,47 @@ void go_to_menu(){
   }
    
 }
+
+void goto_stopping_menu(int alarm){
+  int current_mode = 0;
+  while(true){
+    display.clearDisplay();
+    print_line(alarm_stopping_modes[0],0,0,2,current_mode == 0? true : false);
+    print_line(alarm_stopping_modes[1],0,20,2,current_mode == 1? true : false);
+    int pressed = wait_for_button_press();
+    switch (pressed)
+    {
+    case PB_DOWN:
+      current_mode = (current_mode + 1) % alarm_stopping_options;
+      break;
+    case PB_UP:
+      current_mode -= 1;
+      if(current_mode < 0){
+        current_mode = alarm_stopping_options - 1;
+      }
+      break;
+    case PB_OK:
+      if(current_mode == 0){
+        return;
+      }else if(current_mode == 1){
+        display.clearDisplay();
+        print_line("Alarm " + String(alarm+1) + " snoozed for 5 mins",0,0,2);
+        delay(500);
+        alarm_minutes[alarm] += 5;
+        if(alarm_minutes[alarm] >= 60){
+          alarm_minutes[alarm] %= 60;
+          alarm_hours[alarm] += 1;
+          if(alarm_hours[alarm] == 24){
+            alarm_hours[alarm] = 0;
+          }
+        
+        }
+        return;
+      }
+    }
+  }
+}
+  
 
 void goto_alarm_menu(int alarm){
   int current_mode = 0;

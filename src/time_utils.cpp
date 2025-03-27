@@ -23,12 +23,12 @@ void update_time_with_check_alarm() {
     if (alarm_triggered_minutes[i] && alarm_triggered_minutes[i] < minutes) {
       alarm_triggered[i] = false;
     }
-     
+
     if (alarm_enabled[i]) {
       if (alarm_hours[i] == hours && alarm_minutes[i] == minutes && !alarm_triggered[i]) {
         alarm_triggered[i] = true;
         alarm_triggered_minutes[i] = minutes;
-        ring_alarm();
+        ring_alarm(i);
       }
     }
   }
