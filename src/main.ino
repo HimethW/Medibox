@@ -22,6 +22,8 @@
 #define HUMIDITY_UPPERLIMIT 40
 #define HUMIDITY_LOWERLIMIT 20
 
+#define SNOOZE_TIME_MINUTES 5
+
 #define NTP_SERVER     "pool.ntp.org"
 //#define UTC_OFFSET     (5.5 * 3600)
 #define UTC_OFFSET_DST 0
@@ -459,9 +461,9 @@ void goto_stopping_menu(int alarm){
         return;
       }else if(current_mode == 1){
         display.clearDisplay();
-        print_line("Alarm " + String(alarm+1) + " snoozed for 5 mins",0,0,2);
-        delay(500);
-        alarm_minutes[alarm] += 5;
+        print_line("Alarm " + String(alarm+1) + " snoozed for " + String(SNOOZE_TIME_MINUTES) + " mins",0,0,2);
+        delay(1000);
+        alarm_minutes[alarm] += SNOOZE_TIME_MINUTES;
         if(alarm_minutes[alarm] >= 60){
           alarm_minutes[alarm] %= 60;
           alarm_hours[alarm] += 1;
