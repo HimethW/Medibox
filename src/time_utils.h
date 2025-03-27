@@ -9,7 +9,7 @@ extern int days;
 extern int hours;
 extern int minutes;
 extern int seconds;
-extern bool alarm_enabled;
+extern bool alarm_enabled[];
 extern int n_alarms;
 extern int alarm_hours[];
 extern int alarm_minutes[];

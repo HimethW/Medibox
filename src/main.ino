@@ -54,7 +54,7 @@ int hours = 0;
 int minutes = 0;
 int seconds = 0;
 
-bool alarm_enabled = true;
+bool alarm_enabled[] = {false, false};
 int n_alarms = 2;
 int alarm_hours[] = {0, 1};
 int alarm_minutes[] = {1, 1}; 
@@ -68,7 +68,7 @@ bool humidityLow = false;
 unsigned long timeNow = 0;
 unsigned long timeLast = 0;
 
-int current_mode = 0;
+
 int max_modes = 3;
 int alarm_options = 2;
 String modes[] = {"1)TimeZone", "2)Alarm 1", "3)Alarm 2"};
@@ -294,9 +294,17 @@ void set_timeZone(){
 }
 
 void set_alarm(int alarm){
-  int temp_hours = alarm_hours[alarm];
-  int temp_minutes = alarm_minutes[alarm];
-  
+  int temp_hours = 0;
+  int temp_minutes = 0;
+
+  if(alarm_enabled[alarm]){
+    temp_hours = alarm_hours[alarm];
+    temp_minutes = alarm_minutes[alarm];
+  }else{
+    temp_hours = hours;
+    temp_minutes = minutes;
+  }
+    
   while(true){
   display.clearDisplay();
   print_line("Set hours: " + String(temp_hours),0,0,2);
@@ -318,6 +326,9 @@ void set_alarm(int alarm){
     }
     else if (digitalRead(PB_cancel) == LOW){
       delay(200);
+      display.clearDisplay(); 
+      print_line("Alarm not modified",0,0,2);
+      delay(500);
       return;
     }
   }
@@ -339,17 +350,24 @@ void set_alarm(int alarm){
     else if (digitalRead(PB_OK) == LOW){
       delay(200);
       alarm_minutes[alarm] = temp_minutes;
+      display.clearDisplay(); 
+      print_line("Alarm " + String(alarm+1)+ " set",0,0,2);
+      delay(500);
+      alarm_enabled[alarm] = true;
       break;
     }
     else if (digitalRead(PB_cancel) == LOW){
       delay(200);
+      display.clearDisplay(); 
+      print_line("Alarm not modified",0,0,2);
+      delay(500);
       return;
     }
   }
 
-  display.clearDisplay();
-  print_line("Alarm is set",0,0,2);
-  delay(500);
+  // display.clearDisplay();
+  // print_line("Alarm is set",0,0,2);
+  // delay(500);
 }
 
 void run_mode(int mode){
@@ -358,26 +376,26 @@ void run_mode(int mode){
     return;
   }
   else if(mode == 1 || mode ==2){
-    set_alarm(mode-1);
+    goto_alarm_menu(mode-1);
     return;
   }
-  else if(mode ==3){
-    alarm_enabled = !alarm_enabled;
-    modes[3] = String("4 - ") + (alarm_enabled ? "Disable" : "Enable") + " Alarms";
-    display.clearDisplay();
-    if(alarm_enabled){
-      print_line("Alarms enabled",0,0,2);
-    }
-    else{
-      print_line("Alarms disabled",0,0,2);
-    }
-    delay(500);
-    return;
-  }
+  // else if(mode ==3){
+  //   alarm_enabled = !alarm_enabled;
+  //   modes[3] = String("4 - ") + (alarm_enabled ? "Disable" : "Enable") + " Alarms";
+  //   display.clearDisplay();
+  //   if(alarm_enabled){
+  //     print_line("Alarms enabled",0,0,2);
+  //   }
+  //   else{
+  //     print_line("Alarms disabled",0,0,2);
+  //   }
+  //   delay(500);
+  //   return;
+  // }
 }
 
 void go_to_menu(){
-  current_mode = 0;
+  int current_mode = 0;
   while(digitalRead(PB_cancel) == HIGH){
     display.clearDisplay();
     //Serial.println("cleared");
@@ -407,6 +425,54 @@ void go_to_menu(){
     }
   }
    
+}
+
+void goto_alarm_menu(int alarm){
+  int current_mode = 0;
+  while(digitalRead(PB_cancel) == HIGH){
+    display.clearDisplay();
+
+    if(alarm_enabled[alarm]){
+      print_line("Enabled: ",0,0,1);
+      print_line(String(alarm_hours[alarm]) + ":" + String(alarm_minutes[alarm]),60,0,2);
+    }else{
+      print_line("Not Set",0,0,2);
+    }
+
+    print_line(alarm_modes[current_mode],0,20,2,true);
+    int nextMode = (current_mode + 1) % alarm_options;
+
+    if(alarm_enabled[alarm]){
+      print_line(alarm_modes[nextMode],0,40,2,false);
+    }
+    int pressed = wait_for_button_press();
+
+    switch (pressed)
+    {
+    case PB_DOWN:
+      current_mode = (current_mode + 1) % alarm_options;
+      break;
+    case PB_UP:
+      current_mode -= 1;
+      if(current_mode < 0){
+        current_mode = alarm_options - 1;
+      }
+      break;
+    case PB_OK:
+      if(current_mode == 0){
+        set_alarm(alarm);
+      }
+      else if(current_mode == 1){
+        alarm_enabled[alarm] = false;
+        display.clearDisplay();
+        print_line("Alarm deleted",0,0,2);
+        delay(500);
+      }
+      break;
+    case PB_cancel:
+      return;
+    }
+  }
 }
 
 void check_temp(){
