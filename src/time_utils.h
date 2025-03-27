@@ -14,6 +14,7 @@ extern int n_alarms;
 extern int alarm_hours[];
 extern int alarm_minutes[];
 extern bool alarm_triggered[];
+extern int alarm_triggered_minutes[];
 
 // Function declarations
 void update_time_with_check_alarm();

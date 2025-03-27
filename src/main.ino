@@ -60,6 +60,8 @@ int alarm_hours[] = {0, 1};
 int alarm_minutes[] = {1, 1}; 
 bool alarm_triggered[] = {false, false};
 
+int alarm_triggered_minutes[] = {0, 0};
+
 bool tempHigh = false;
 bool tempLow = false;
 bool humidityHigh = false;
@@ -71,8 +73,11 @@ unsigned long timeLast = 0;
 
 int max_modes = 3;
 int alarm_options = 2;
+int alarm_stopping_options = 2;
 String modes[] = {"1)TimeZone", "2)Alarm 1", "3)Alarm 2"};
 String alarm_modes[] = {"1)Set Time", "2)Delete"};
+
+String alarm_stopping_modes[] = {"1)Stop", "2)Snooze"};
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 DHTesp dhtSensor;
@@ -122,6 +127,8 @@ void ring_alarm(){
   bool break_happend = false;
   display.clearDisplay();
   print_line("MEDICINE TIME",0,0,2);
+
+
 
   digitalWrite(LED_1, HIGH);
 
@@ -354,6 +361,7 @@ void set_alarm(int alarm){
       print_line("Alarm " + String(alarm+1)+ " set",0,0,2);
       delay(500);
       alarm_enabled[alarm] = true;
+      alarm_triggered[alarm] = false;
       break;
     }
     else if (digitalRead(PB_cancel) == LOW){
@@ -470,7 +478,7 @@ void goto_alarm_menu(int alarm){
       else if(current_mode == 1){
         alarm_enabled[alarm] = false;
         display.clearDisplay();
-        print_line("Alarm deleted",0,0,2);
+        print_line("Alarm " + String(alarm+1) + " deleted",0,0,2);
         delay(500);
         current_mode = 0;
       }
