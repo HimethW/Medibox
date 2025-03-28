@@ -73,11 +73,11 @@ unsigned long timeNow = 0;
 unsigned long timeLast = 0;
 
 
-int max_modes = 3;
-int alarm_options = 2;
+int max_modes = 4;
+int alarm_options = 3;
 int alarm_stopping_options = 2;
-String modes[] = {"1)TimeZone", "2)Alarm 1", "3)Alarm 2"};
-String alarm_modes[] = {"1)Set Time", "2)Delete"};
+String modes[] = {"1)Set TimeZone", "2)Alarm 1 view/edit", "3)Alarm 2 view/edit", "()Exit"};
+String alarm_modes[] = {"1)Set Time", "2)Delete", "()Exit"};
 
 String alarm_stopping_modes[] = {"1)Stop", "2)Snooze"};
 
@@ -410,9 +410,11 @@ void go_to_menu(){
   while(digitalRead(PB_cancel) == HIGH){
     display.clearDisplay();
     //Serial.println("cleared");
-    print_line(modes[current_mode],0,0,2,true);
-    int nextMode = (current_mode + 1) % max_modes;
-    print_line(modes[nextMode],0,40,2,false);
+    print_line(modes[0],0,0,1,current_mode == 0? true : false);
+    // int nextMode = (current_mode + 1) % max_modes;
+    print_line(modes[1],0,15,1,current_mode == 1? true : false);
+    print_line(modes[2],0,30,1,current_mode == 2? true : false);
+    print_line(modes[3],0,45,1,current_mode == 3? true : false);
     //Serial.println("printed");
     int pressed = wait_for_button_press();
     //Serial.println("pressed");
@@ -429,10 +431,11 @@ void go_to_menu(){
       }
       break;
     case PB_OK:
+      if(current_mode == 3){
+        return;
+      }
       run_mode(current_mode);
       break;
-    case PB_cancel:
-      return;
     }
   }
    
@@ -492,26 +495,35 @@ void goto_alarm_menu(int alarm){
       print_line("Not Set",0,0,2);
     }
 
-    print_line(alarm_modes[0],0,20,2, current_mode == 0? true : false);
+    print_line(alarm_modes[0],0,30,1, current_mode == 0? true : false);
     
 
     if(alarm_enabled[alarm]){
-      print_line(alarm_modes[1],0,40,2,current_mode == 1? true : false);
+      print_line(alarm_modes[1],0,40,1,current_mode == 1? true : false);
+      print_line(alarm_modes[2],0,50,1,current_mode == 2? true : false);
+    }else{
+      print_line(alarm_modes[2],0,40,1,current_mode == 2? true : false);
     }
     int pressed = wait_for_button_press();
 
     switch (pressed)
     {
     case PB_DOWN:
-      if(alarm_enabled[alarm]){
-        current_mode = (current_mode + 1) % alarm_options;
+      current_mode = (current_mode + 1) % alarm_options;
+      if(!alarm_enabled[alarm]){
+        if(current_mode == 1){
+          current_mode = 2;
+        }
       }
       break;
     case PB_UP:
-      if(alarm_enabled[alarm]){
-        current_mode -= 1;
-        if(current_mode < 0){
-          current_mode = alarm_options - 1;
+      current_mode -= 1;
+      if(current_mode < 0){
+        current_mode = alarm_options - 1;
+      }
+      if(!alarm_enabled[alarm]){
+        if(current_mode == 1){
+          current_mode = 0;
         }
       }
       break;
@@ -522,13 +534,15 @@ void goto_alarm_menu(int alarm){
       else if(current_mode == 1){
         alarm_enabled[alarm] = false;
         display.clearDisplay();
-        print_line("Alarm " + String(alarm+1) + " deleted",0,0,2);
-        delay(500);
+        print_line("Alarm " + String(alarm+1) ,43,25,1);
+        print_line("deleted",41,35,1);
+        delay(1000);
         current_mode = 0;
       }
+      else if(current_mode == 2){
+        return;
+      }
       break;
-    case PB_cancel:
-      return;
     }
   }
 }
@@ -569,6 +583,7 @@ void check_temp(){
 void loop() {
   update_time_with_check_alarm();
   if(digitalRead(PB_OK) == LOW){
+    delay(200);
     go_to_menu();
   }
   check_temp();
