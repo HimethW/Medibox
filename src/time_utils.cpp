@@ -2,8 +2,10 @@
 
 void print_time_now() {
   display.clearDisplay();
-  String time = String(days) + ":" + String(hours) + ":" + String(minutes) + ":" + String(seconds);
+  String time = "Day: " + String(days) + "\n" + String(hours) + ":" + String(minutes) + ":" + String(seconds);
+  homeScreen = true;
   print_line(time, 0, 0, 2);
+  homeScreen = false;
 }
 
 void update_time_wifi() {

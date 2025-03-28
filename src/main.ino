@@ -17,10 +17,10 @@
 #define OLED_RESET -1
 #define SCREEN_ADDRESS 0x3C
 
-#define TEMP_UPPERLIMIT 35
-#define TEMP_LOWERLIMIT 25
-#define HUMIDITY_UPPERLIMIT 40
-#define HUMIDITY_LOWERLIMIT 20
+#define TEMP_UPPERLIMIT 35.0
+#define TEMP_LOWERLIMIT 25.0
+#define HUMIDITY_UPPERLIMIT 40.0
+#define HUMIDITY_LOWERLIMIT 20.0
 
 #define SNOOZE_TIME_MINUTES 5
 
@@ -68,9 +68,13 @@ bool tempHigh = false;
 bool tempLow = false;
 bool humidityHigh = false;
 bool humidityLow = false; 
+bool homeScreen = true;
 
 unsigned long timeNow = 0;
 unsigned long timeLast = 0;
+
+float temp = 0;
+float humidity = 0;
 
 
 int max_modes = 4;
@@ -553,8 +557,8 @@ void check_temp(){
   humidityHigh = false;
   humidityLow = false; 
   TempAndHumidity data = dhtSensor.getTempAndHumidity();
-  int temp = data.temperature;
-  int humidity = data.humidity;
+  temp = data.temperature;
+  humidity = data.humidity;
   //display.clearDisplay();
   if(temp > TEMP_UPPERLIMIT){
     tempHigh = true;

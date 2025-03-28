@@ -15,6 +15,7 @@ extern int alarm_hours[];
 extern int alarm_minutes[];
 extern bool alarm_triggered[];
 extern int alarm_triggered_minutes[];
+extern bool homeScreen; 
 
 // Function declarations
 void update_time_with_check_alarm();

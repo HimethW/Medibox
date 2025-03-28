@@ -107,6 +107,14 @@
       "top": -201.3,
       "left": -437.4,
       "attrs": { "humidity": "36.5", "temperature": "31.7" }
+    },
+    { "type": "wokwi-logo", "id": "logo1", "top": 240, "left": -268.8, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 268.8,
+      "left": -288,
+      "attrs": { "text": "Walgampaya H.K.B.\n220675T" }
     }
   ],
   "connections": [
@@ -171,20 +179,10 @@
     [ "r5:2", "bb1:18b.i", "", [ "$bb" ] ],
     [ "r6:1", "bb1:2b.i", "", [ "$bb" ] ],
     [ "r6:2", "bb1:8b.i", "", [ "$bb" ] ],
-    [ "bz1:1", "bb2:14t.a", "", [ "$bb" ] ],
-    [ "bz1:2", "bb2:15t.a", "", [ "$bb" ] ],
-    [ "r1:1", "bb2:15t.b", "", [ "$bb" ] ],
-    [ "r1:2", "bb2:21t.b", "", [ "$bb" ] ],
-    [ "led1:A", "bb2:27t.a", "", [ "$bb" ] ],
-    [ "led1:C", "bb2:26t.a", "", [ "$bb" ] ],
-    [ "r2:1", "bb2:27t.b", "", [ "$bb" ] ],
-    [ "r2:2", "bb2:33t.b", "", [ "$bb" ] ],
     [ "btn1:1.l", "bb2:60t.c", "", [ "$bb" ] ],
     [ "btn1:2.l", "bb2:58t.c", "", [ "$bb" ] ],
     [ "btn1:1.r", "bb2:60b.h", "", [ "$bb" ] ],
-    [ "btn1:2.r", "bb2:58b.h", "", [ "$bb" ] ],
-    [ "r3:1", "bb2:52b.i", "", [ "$bb" ] ],
-    [ "r3:2", "bb2:58b.i", "", [ "$bb" ] ]
+    [ "btn1:2.r", "bb2:58b.h", "", [ "$bb" ] ]
   ],
   "dependencies": {}
 }

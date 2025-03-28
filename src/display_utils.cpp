@@ -16,21 +16,30 @@ void print_line(String message, int column, int row, int textSize, bool selected
   display.setCursor(column+1, row+1);
   display.println(message);
 
-  display.setTextSize(1);
-  if(tempHigh){
-    display.setCursor(0,40);
-    display.println("Temperature high");
-  }else if(tempLow){
-    display.setCursor(0,40);
-    display.println("Temperature low");
+  if(homeScreen){
+    display.setTextSize(1);
+    if(tempHigh){
+      display.setCursor(0,40);
+      display.println("Temp high: "+ String(temp,1));
+    }else if(tempLow){
+      display.setCursor(0,40);
+      display.println("Temp low: "+ String(temp,1));
+    }else{
+      display.setCursor(0,40);
+      display.println("Temp normal: "+ String(temp,1));
+    }
+    if(humidityHigh){
+      display.setCursor(0,50);
+      display.println("Humidity high: "+ String(humidity,1));
+    }else if(humidityLow){
+      display.setCursor(0,50);
+      display.println("Humidity low: "+ String(humidity,1));
+    }else{
+      display.setCursor(0,50);
+      display.println("Humidity normal: "+ String(humidity,1));
+    }
   }
-  if(humidityHigh){
-    display.setCursor(0,50);
-    display.println("Humidity high");
-  }else if(humidityLow){
-    display.setCursor(0,50);
-    display.println("Humidity low");
-  }
+  
 
   display.display();
   }
