@@ -133,7 +133,7 @@ void ring_alarm(int alarm){
   bool break_happend = false;
   display.clearDisplay();
   print_line("Alarm " + String(alarm+1),0,0,1);
-  print_line("MEDICINE TIME",0,20,1);
+  print_line("MEDICINE TIME",20,25,1);
 
 
 
@@ -183,10 +183,13 @@ void goto_stopping_menu(int alarm){
       break;
     case PB_OK:
       if(current_mode == 0){
+        display.clearDisplay();
+        print_line("Alarm " + String(alarm+1) + "\nStopped",0,0,2);
+        delay(1000);
         return;
       }else if(current_mode == 1){
         display.clearDisplay();
-        print_line("Alarm " + String(alarm+1) + " snoozed for " + String(SNOOZE_TIME_MINUTES) + " mins",0,0,2);
+        print_line("Alarm " + String(alarm+1) + "\nSnoozed for " + String(SNOOZE_TIME_MINUTES) + "\nminutes",0,0,2);
         delay(1000);
         alarm_minutes[alarm] += SNOOZE_TIME_MINUTES;
         if(alarm_minutes[alarm] >= 60){
@@ -339,11 +342,10 @@ void set_timeZone(){
       delay(200);
       UTC_OFFSET = temp_zone * 3600;
       configTime(UTC_OFFSET, UTC_OFFSET_DST, NTP_SERVER);
+      display.clearDisplay();
+      print_line("TimeZone\nset",0,0,2);
+      delay(1000);
       break;
-    }
-    else if (digitalRead(PB_cancel) == LOW){
-      delay(200);
-      return;
     }
   }
 }
@@ -406,19 +408,13 @@ void set_alarm(int alarm){
       delay(200);
       alarm_minutes[alarm] = temp_minutes;
       display.clearDisplay(); 
-      print_line("Alarm " + String(alarm+1)+ " set",0,0,2);
-      delay(500);
+      print_line("Alarm " + String(alarm+1)+ "\nset",0,0,2);
+      delay(1000);
       alarm_enabled[alarm] = true;
       alarm_triggered[alarm] = false;
       break;
     }
-    else if (digitalRead(PB_cancel) == LOW){
-      delay(200);
-      display.clearDisplay(); 
-      print_line("Alarm not modified",0,0,2);
-      delay(500);
-      return;
-    }
+    
   }
 
   // display.clearDisplay();
