@@ -1,4 +1,6 @@
 #include "time_utils.h"
+#include "menu_utils.h"
+#include "config.h"
 
 void print_time_now() {
   display.clearDisplay();
@@ -34,4 +36,37 @@ void update_time_with_check_alarm() {
       }
     }
   }
+}
+
+void ring_alarm(int alarm){
+  bool break_happend = false;
+  display.clearDisplay();
+  print_line("Alarm " + String(alarm+1),0,0,1);
+  print_line("MEDICINE TIME",20,25,1);
+
+
+
+  digitalWrite(LED_ALARM, HIGH);
+
+  while (!break_happend)
+  {
+    for(int i = 0; i < n_notes; i++){
+      if(digitalRead(PB_OK) == LOW){
+        delay(200);
+        break_happend = true;
+        break;
+      }
+      tone(BUZZER_PIN, notes[i]);
+      delay(500);
+      noTone(BUZZER_PIN);
+      delay(2);
+    }
+  }
+  
+  digitalWrite(LED_ALARM, LOW);
+
+  goto_stopping_menu(alarm);
+  
+  
+  
 }
