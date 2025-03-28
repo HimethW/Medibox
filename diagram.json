@@ -25,29 +25,14 @@
       "id": "led1",
       "top": -13.2,
       "left": 157.4,
-      "attrs": { "color": "red" }
+      "attrs": { "color": "red", "label": "Alarm" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r2",
-      "top": 32.75,
+      "top": 51.95,
       "left": 182.4,
       "attrs": { "value": "220" }
-    },
-    {
-      "type": "wokwi-pushbutton",
-      "id": "btn1",
-      "top": 57.5,
-      "left": 454.7,
-      "rotate": 90,
-      "attrs": { "color": "green" }
-    },
-    {
-      "type": "wokwi-resistor",
-      "id": "r3",
-      "top": 119.15,
-      "left": 422.4,
-      "attrs": { "value": "100" }
     },
     {
       "type": "wokwi-pushbutton",
@@ -55,7 +40,7 @@
       "top": 70.7,
       "left": -415.3,
       "rotate": 90,
-      "attrs": { "color": "yellow", "bounce": "0", "label": "DOWN" }
+      "attrs": { "color": "yellow", "bounce": "0", "label": "DOWN", "xray": "" }
     },
     {
       "type": "wokwi-pushbutton",
@@ -108,13 +93,41 @@
       "left": -437.4,
       "attrs": { "humidity": "36.5", "temperature": "31.7" }
     },
-    { "type": "wokwi-logo", "id": "logo1", "top": 240, "left": -268.8, "attrs": {} },
+    { "type": "wokwi-logo", "id": "logo1", "top": 259.2, "left": -211.2, "attrs": {} },
     {
       "type": "wokwi-text",
       "id": "text1",
-      "top": 268.8,
-      "left": -288,
+      "top": 288,
+      "left": -211.2,
       "attrs": { "text": "Walgampaya H.K.B.\n220675T" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 63.6,
+      "left": 71,
+      "attrs": { "color": "blue", "label": "Humidity" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 63.6,
+      "left": 147.8,
+      "attrs": { "color": "orange", "label": "Temperature" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 119.15,
+      "left": 96,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r7",
+      "top": 119.15,
+      "left": 172.8,
+      "attrs": { "value": "220" }
     }
   ],
   "connections": [
@@ -128,10 +141,7 @@
     [ "esp:GND.1", "bb2:tn.3", "black", [ "h18.67", "v-182.4", "h154.4" ] ],
     [ "bb2:14t.b", "bb2:tn.5", "black", [ "h-67.2", "v-38.3" ] ],
     [ "esp:27", "bb2:21t.a", "blue", [ "h-28.65", "v-172.8", "h451.2", "v134.4" ] ],
-    [ "bb2:26t.b", "bb2:tn.18", "black", [ "h-28.8", "v-38.3" ] ],
     [ "esp:26", "bb2:33t.a", "orange", [ "h-38.25", "v-182.4", "h0" ] ],
-    [ "bb2:60t.a", "bb2:tn.49", "black", [ "v0" ] ],
-    [ "bb2:52b.j", "bb2:bp.42", "red", [ "v0" ] ],
     [ "esp:25", "bb2:58t.a", "green", [ "v-9.6", "h-67.05", "v-182.4", "h835.2" ] ],
     [ "bb1:2b.j", "bb1:bp.1", "red", [ "v0" ] ],
     [ "bb1:12b.j", "bb1:bp.10", "red", [ "v0" ] ],
@@ -150,7 +160,6 @@
     [ "bb2:10b.f", "esp:D21", "#8f4814", [ "v0" ] ],
     [ "bb2:21t.a", "esp:D27", "blue", [ "v-172.8", "h-441.6", "v163.2" ] ],
     [ "bb2:33t.a", "esp:D26", "magenta", [ "v-163.2", "h-566.4", "v134.4" ] ],
-    [ "bb2:58t.a", "esp:D25", "green", [ "v-182.4", "h-816", "v153.6" ] ],
     [ "bb1:8t.b", "esp:D34", "green", [ "v0" ] ],
     [ "bb1:18t.b", "esp:D35", "green", [ "v0" ] ],
     [ "bb1:28t.b", "esp:D32", "green", [ "v0" ] ],
@@ -161,6 +170,17 @@
     [ "dht1:VCC", "bb1:tp.3", "red", [ "v28.8", "h-201.6" ] ],
     [ "dht1:GND", "bb1:tn.4", "black", [ "v48", "h-201.6" ] ],
     [ "dht1:SDA", "esp:D13", "orange", [ "v38.4", "h124.9", "v105.6" ] ],
+    [ "bb2:17b.j", "bb2:bn.13", "black", [ "v0" ] ],
+    [ "bb2:25b.j", "bb2:bn.20", "black", [ "v0" ] ],
+    [ "bb2:tn.18", "bb2:26t.d", "black", [ "v0" ] ],
+    [ "bz1:1", "bb2:14t.a", "", [ "$bb" ] ],
+    [ "bz1:2", "bb2:15t.a", "", [ "$bb" ] ],
+    [ "r1:1", "bb2:15t.b", "", [ "$bb" ] ],
+    [ "r1:2", "bb2:21t.b", "", [ "$bb" ] ],
+    [ "led1:A", "bb2:27t.a", "", [ "$bb" ] ],
+    [ "led1:C", "bb2:26t.a", "", [ "$bb" ] ],
+    [ "r2:1", "bb2:27t.d", "", [ "$bb" ] ],
+    [ "r2:2", "bb2:33t.d", "", [ "$bb" ] ],
     [ "btn2:1.l", "bb1:30t.c", "", [ "$bb" ] ],
     [ "btn2:2.l", "bb1:28t.c", "", [ "$bb" ] ],
     [ "btn2:1.r", "bb1:30b.h", "", [ "$bb" ] ],
@@ -179,10 +199,16 @@
     [ "r5:2", "bb1:18b.i", "", [ "$bb" ] ],
     [ "r6:1", "bb1:2b.i", "", [ "$bb" ] ],
     [ "r6:2", "bb1:8b.i", "", [ "$bb" ] ],
-    [ "btn1:1.l", "bb2:60t.c", "", [ "$bb" ] ],
-    [ "btn1:2.l", "bb2:58t.c", "", [ "$bb" ] ],
-    [ "btn1:1.r", "bb2:60b.h", "", [ "$bb" ] ],
-    [ "btn1:2.r", "bb2:58b.h", "", [ "$bb" ] ]
+    [ "led2:A", "bb2:18b.g", "", [ "$bb" ] ],
+    [ "led2:C", "bb2:17b.g", "", [ "$bb" ] ],
+    [ "led3:A", "bb2:26b.g", "", [ "$bb" ] ],
+    [ "led3:C", "bb2:25b.g", "", [ "$bb" ] ],
+    [ "r3:1", "bb2:18b.i", "", [ "$bb" ] ],
+    [ "r3:2", "bb2:24b.i", "", [ "$bb" ] ],
+    [ "r7:1", "bb2:26b.i", "", [ "$bb" ] ],
+    [ "r7:2", "bb2:32b.i", "", [ "$bb" ] ],
+    [ "esp:D18", "bb2:24b.j", "violet", [ "h28.31", "v230.4", "h297.6" ] ],
+    [ "bb2:32b.j", "esp:D19", "violet", [ "v86.4", "h-374.4", "v-230.4" ] ]
   ],
   "dependencies": {}
 }
