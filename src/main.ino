@@ -132,7 +132,8 @@ void ring_alarm(int alarm){
   //Serial.println(digitalRead(PB_cancel)==HIGH);
   bool break_happend = false;
   display.clearDisplay();
-  print_line("MEDICINE TIME",0,0,2);
+  print_line("Alarm " + String(alarm+1),0,0,1);
+  print_line("MEDICINE TIME",0,20,1);
 
 
 
@@ -142,7 +143,7 @@ void ring_alarm(int alarm){
   {
     for(int i = 0; i < n_notes; i++){
       //Serial.println(digitalRead(PB_cancel));
-      if(digitalRead(PB_cancel) == LOW){
+      if(digitalRead(PB_OK) == LOW){
         delay(200);
         break_happend = true;
         break;
@@ -160,6 +161,46 @@ void ring_alarm(int alarm){
   
   
   
+}
+
+void goto_stopping_menu(int alarm){
+  int current_mode = 0;
+  while(true){
+    display.clearDisplay();
+    print_line(alarm_stopping_modes[0],0,0,2,current_mode == 0? true : false);
+    print_line(alarm_stopping_modes[1],0,20,2,current_mode == 1? true : false);
+    int pressed = wait_for_button_press();
+    switch (pressed)
+    {
+    case PB_DOWN:
+      current_mode = (current_mode + 1) % alarm_stopping_options;
+      break;
+    case PB_UP:
+      current_mode -= 1;
+      if(current_mode < 0){
+        current_mode = alarm_stopping_options - 1;
+      }
+      break;
+    case PB_OK:
+      if(current_mode == 0){
+        return;
+      }else if(current_mode == 1){
+        display.clearDisplay();
+        print_line("Alarm " + String(alarm+1) + " snoozed for " + String(SNOOZE_TIME_MINUTES) + " mins",0,0,2);
+        delay(1000);
+        alarm_minutes[alarm] += SNOOZE_TIME_MINUTES;
+        if(alarm_minutes[alarm] >= 60){
+          alarm_minutes[alarm] %= 60;
+          alarm_hours[alarm] += 1;
+          if(alarm_hours[alarm] == 24){
+            alarm_hours[alarm] = 0;
+          }
+        
+        }
+        return;
+      }
+    }
+  }
 }
 
 
@@ -445,45 +486,7 @@ void go_to_menu(){
    
 }
 
-void goto_stopping_menu(int alarm){
-  int current_mode = 0;
-  while(true){
-    display.clearDisplay();
-    print_line(alarm_stopping_modes[0],0,0,2,current_mode == 0? true : false);
-    print_line(alarm_stopping_modes[1],0,20,2,current_mode == 1? true : false);
-    int pressed = wait_for_button_press();
-    switch (pressed)
-    {
-    case PB_DOWN:
-      current_mode = (current_mode + 1) % alarm_stopping_options;
-      break;
-    case PB_UP:
-      current_mode -= 1;
-      if(current_mode < 0){
-        current_mode = alarm_stopping_options - 1;
-      }
-      break;
-    case PB_OK:
-      if(current_mode == 0){
-        return;
-      }else if(current_mode == 1){
-        display.clearDisplay();
-        print_line("Alarm " + String(alarm+1) + " snoozed for " + String(SNOOZE_TIME_MINUTES) + " mins",0,0,2);
-        delay(1000);
-        alarm_minutes[alarm] += SNOOZE_TIME_MINUTES;
-        if(alarm_minutes[alarm] >= 60){
-          alarm_minutes[alarm] %= 60;
-          alarm_hours[alarm] += 1;
-          if(alarm_hours[alarm] == 24){
-            alarm_hours[alarm] = 0;
-          }
-        
-        }
-        return;
-      }
-    }
-  }
-}
+
   
 
 void goto_alarm_menu(int alarm){
