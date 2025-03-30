@@ -82,8 +82,8 @@
     {
       "type": "board-ssd1306",
       "id": "oled1",
-      "top": 252.74,
-      "left": -47.77,
+      "top": 281.54,
+      "left": -412.57,
       "attrs": { "i2cAddress": "0x3c" }
     },
     {
@@ -93,12 +93,12 @@
       "left": -437.4,
       "attrs": { "humidity": "36.5", "temperature": "31.7" }
     },
-    { "type": "wokwi-logo", "id": "logo1", "top": 259.2, "left": -211.2, "attrs": {} },
+    { "type": "wokwi-logo", "id": "logo1", "top": 288, "left": -278.4, "attrs": {} },
     {
       "type": "wokwi-text",
       "id": "text1",
-      "top": 288,
-      "left": -211.2,
+      "top": 316.8,
+      "left": -278.4,
       "attrs": { "text": "Walgampaya H.K.B.\n220675T" }
     },
     {
@@ -163,16 +163,18 @@
     [ "bb1:8t.b", "esp:D34", "green", [ "v0" ] ],
     [ "bb1:18t.b", "esp:D35", "green", [ "v0" ] ],
     [ "bb1:28t.b", "esp:D32", "green", [ "v0" ] ],
-    [ "bb2:10b.j", "oled1:SDA", "#8f4814", [ "v0" ] ],
-    [ "bb2:9b.j", "oled1:SCL", "gold", [ "v0" ] ],
-    [ "oled1:VCC", "bb2:bp.5", "red", [ "v0" ] ],
-    [ "oled1:GND", "bb2:bn.5", "black", [ "v0" ] ],
+    [ "bb2:10b.j", "oled1:SDA", "#8f4814", [ "v134.4", "h-364.87" ] ],
+    [ "bb2:9b.j", "oled1:SCL", "gold", [ "v124.8", "h-365.1" ] ],
+    [ "oled1:VCC", "bb2:bp.5", "red", [ "v-38.4", "h364.95", "v-85.5" ] ],
+    [ "oled1:GND", "bb2:bn.5", "black", [ "v-48", "h365.6" ] ],
     [ "dht1:VCC", "bb1:tp.3", "red", [ "v28.8", "h-201.6" ] ],
     [ "dht1:GND", "bb1:tn.4", "black", [ "v48", "h-201.6" ] ],
     [ "dht1:SDA", "esp:D13", "orange", [ "v38.4", "h124.9", "v105.6" ] ],
     [ "bb2:17b.j", "bb2:bn.13", "black", [ "v0" ] ],
     [ "bb2:25b.j", "bb2:bn.20", "black", [ "v0" ] ],
     [ "bb2:tn.18", "bb2:26t.d", "black", [ "v0" ] ],
+    [ "esp:D18", "bb2:24b.j", "violet", [ "h28.31", "v230.4", "h297.6" ] ],
+    [ "bb2:32b.j", "esp:D19", "violet", [ "v86.4", "h-374.4", "v-230.4" ] ],
     [ "bz1:1", "bb2:14t.a", "", [ "$bb" ] ],
     [ "bz1:2", "bb2:15t.a", "", [ "$bb" ] ],
     [ "r1:1", "bb2:15t.b", "", [ "$bb" ] ],
@@ -206,9 +208,7 @@
     [ "r3:1", "bb2:18b.i", "", [ "$bb" ] ],
     [ "r3:2", "bb2:24b.i", "", [ "$bb" ] ],
     [ "r7:1", "bb2:26b.i", "", [ "$bb" ] ],
-    [ "r7:2", "bb2:32b.i", "", [ "$bb" ] ],
-    [ "esp:D18", "bb2:24b.j", "violet", [ "h28.31", "v230.4", "h297.6" ] ],
-    [ "bb2:32b.j", "esp:D19", "violet", [ "v86.4", "h-374.4", "v-230.4" ] ]
+    [ "r7:2", "bb2:32b.i", "", [ "$bb" ] ]
   ],
   "dependencies": {}
 }

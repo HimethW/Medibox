@@ -32,13 +32,13 @@ void print_line(String message, int column, int row, int textSize, bool selected
     }
     if(humidityHigh){
       display.setCursor(0,50);
-      display.println("Humidity high: "+ String(humidity,1) + "%");
+      display.println("Humidity high: "+ String(humidity,1));
     }else if(humidityLow){
       display.setCursor(0,50);
-      display.println("Humidity low: "+ String(humidity,1) + "%");
+      display.println("Humidity low: "+ String(humidity,1));
     }else{
       display.setCursor(0,50);
-      display.println("Humidity normal: "+ String(humidity,1) + "%");
+      display.println("Humidity normal: "+ String(humidity,1));
     }
   }
   

@@ -46,7 +46,7 @@ void ring_alarm(int alarm){                                                  // 
   display.clearDisplay();
   print_line("Alarm " + String(alarm+1),0,0,1);
   print_line("MEDICINE TIME",20,25,1);                                       // Print the alarm message
-  print_line("Press ok",40,0,1); 
+  print_line("Press ok",0,40,1); 
 
 
 
