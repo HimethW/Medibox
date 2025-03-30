@@ -162,7 +162,7 @@ void set_timeZone(){                                        // Function to set t
     
   while(true){
   display.clearDisplay();
-  print_line("Set TimeZone: \n" + String(temp_zone) + "\n\n\nPress ok to set",0,0,1);
+  print_line("Set TimeZone\nUTC: " + String(temp_zone) + "\n\n\nPress ok to set",0,0,1);
     if(digitalRead(PB_UP) == LOW){                          // If the up button is pressed, increment the timezone by 0.25 hours(15 minutes)
       delay(200);
       temp_zone += 0.25;
