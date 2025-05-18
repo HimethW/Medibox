@@ -128,6 +128,22 @@
       "top": 119.15,
       "left": 172.8,
       "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -211.5,
+      "left": -610.3,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 267.8,
+      "left": -612.6,
+      "rotate": 270,
+      "attrs": {}
     }
   ],
   "connections": [
@@ -175,6 +191,10 @@
     [ "bb2:tn.18", "bb2:26t.d", "black", [ "v0" ] ],
     [ "esp:D18", "bb2:24b.j", "violet", [ "h28.31", "v230.4", "h297.6" ] ],
     [ "bb2:32b.j", "esp:D19", "violet", [ "v86.4", "h-374.4", "v-230.4" ] ],
+    [ "bb1:tp.5", "ldr1:VCC", "red", [ "v-76.5", "h116.8" ] ],
+    [ "bb1:tn.5", "ldr1:GND", "black", [ "v-0.1", "h11.2", "v-96", "h96" ] ],
+    [ "esp:D33", "ldr1:AO", "orange", [ "h-259.2", "v-96" ] ],
+    [ "esp:D14", "servo1:PWM", "orange", [ "h-38.4", "v182.4", "h-144", "v211.2", "h-57.8" ] ],
     [ "bz1:1", "bb2:14t.a", "", [ "$bb" ] ],
     [ "bz1:2", "bb2:15t.a", "", [ "$bb" ] ],
     [ "r1:1", "bb2:15t.b", "", [ "$bb" ] ],
@@ -208,7 +228,9 @@
     [ "r3:1", "bb2:18b.i", "", [ "$bb" ] ],
     [ "r3:2", "bb2:24b.i", "", [ "$bb" ] ],
     [ "r7:1", "bb2:26b.i", "", [ "$bb" ] ],
-    [ "r7:2", "bb2:32b.i", "", [ "$bb" ] ]
+    [ "r7:2", "bb2:32b.i", "", [ "$bb" ] ],
+    [ "servo1:GND", "bb1:bn.4", "black", [ "v28.8", "h-67.2" ] ],
+    [ "servo1:V+", "bb1:bp.5", "red", [ "v19.2", "h-67.1" ] ]
   ],
   "dependencies": {}
 }

@@ -2,6 +2,7 @@
 
 #include "sensor_utils.h"
 #include "config.h"
+#include "display_utils.h"
 
 void check_temp(){                                              // Function to check temperature and humidity using the DHT sensor
     tempHigh = false;
@@ -38,3 +39,15 @@ void check_temp(){                                              // Function to c
     }
   
   }
+
+void check_light() {
+  float LDR_voltage = analogRead(LDR_PIN);                      // Read the light value from the LDR
+  number_of_samples++;                                          // Increment the number of samples
+               
+  float voltage = LDR_voltage / 4096. * 3.3;                    // Convert the analog reading to voltage(this equation was taken from the wokwi LDR documentation and changed to 3.3V of the ESP32)
+  float resistance = 2000 * voltage / (1 - voltage / 3.3);
+  float lux = pow(RL10 * 1e3 * pow(10, GAMMA_LDR) / resistance, (1 / GAMMA_LDR));
+  total_lux_value += lux;                                       // Accumulate the lux value
+                                 
+  
+}

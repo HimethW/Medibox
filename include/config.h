@@ -16,6 +16,9 @@
 #define HUMIDITY_LOWERLIMIT 65.0
 #define SNOOZE_TIME_MINUTES 5
 
+#define GAMMA_LDR 0.7
+#define RL10 33
+
 #define NTP_SERVER "pool.ntp.org"
 #define UTC_OFFSET_DST 0
 
@@ -27,5 +30,7 @@
 #define PB_OK 35
 #define PB_DOWN 32
 #define DHTPIN 13
+#define LDR_PIN 33
+#define SERVO_PIN 14
 
 #endif
