@@ -1,0 +1,1456 @@
+[
+    {
+        "id": "78af776769b0f7a7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "31ae03395a52c58b",
+        "type": "ui_tab",
+        "name": "Medibox Dashboard",
+        "icon": "Dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0af51d0bb4266e7c",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#0c9da5",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#0c9da5",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0c9da5",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#11e1ec",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0c9da5",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 6,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "7ca74350246ab9dc",
+        "type": "ui_group",
+        "name": "Light Intensity",
+        "tab": "31ae03395a52c58b",
+        "order": 1,
+        "disp": true,
+        "width": 13,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4692ee19bc958e0c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "ora6.emanate.io",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "52bf5e79fdd592ce",
+        "type": "ui_group",
+        "name": "Servo Control",
+        "tab": "31ae03395a52c58b",
+        "order": 2,
+        "disp": true,
+        "width": 13,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3b23a0be173a5114",
+        "type": "ui_spacer",
+        "z": "78af776769b0f7a7",
+        "name": "spacer",
+        "group": "7ca74350246ab9dc",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "267c5a0424824991",
+        "type": "ui_spacer",
+        "z": "78af776769b0f7a7",
+        "name": "spacer",
+        "group": "7ca74350246ab9dc",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6510786320b27ec1",
+        "type": "ui_spacer",
+        "z": "78af776769b0f7a7",
+        "name": "spacer",
+        "group": "7ca74350246ab9dc",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a76bd9e861d2d924",
+        "type": "ui_spacer",
+        "z": "78af776769b0f7a7",
+        "name": "spacer",
+        "group": "7ca74350246ab9dc",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "024d88cd1b64db0e",
+        "type": "ui_spacer",
+        "z": "78af776769b0f7a7",
+        "name": "spacer",
+        "group": "7ca74350246ab9dc",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "99f05393efce7a13",
+        "type": "ui_spacer",
+        "z": "78af776769b0f7a7",
+        "name": "spacer",
+        "group": "7ca74350246ab9dc",
+        "order": 12,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "9db00585bb7ed451",
+        "type": "ui_spacer",
+        "z": "78af776769b0f7a7",
+        "name": "spacer",
+        "group": "7ca74350246ab9dc",
+        "order": 14,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "c639dff6e2663ed4",
+        "type": "ui_spacer",
+        "z": "78af776769b0f7a7",
+        "name": "spacer",
+        "group": "52bf5e79fdd592ce",
+        "order": 10,
+        "width": 13,
+        "height": 1
+    },
+    {
+        "id": "02d8bd066095a42a",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c144cee4647a0a3c",
+        "type": "mqtt in",
+        "z": "78af776769b0f7a7",
+        "name": "Light_intensity",
+        "topic": "Light_intensity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4692ee19bc958e0c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 340,
+        "wires": [
+            [
+                "7c670b71f89e5a83",
+                "939cc0c642741b13",
+                "f4f1e53f9fa1d5a4"
+            ]
+        ]
+    },
+    {
+        "id": "7c670b71f89e5a83",
+        "type": "ui_gauge",
+        "z": "78af776769b0f7a7",
+        "name": "Light intensity gauge",
+        "group": "7ca74350246ab9dc",
+        "order": 11,
+        "width": 9,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Light Intensity",
+        "label": "Mapped Lux",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 540,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "92227af05ce2c2dd",
+        "type": "ui_slider",
+        "z": "78af776769b0f7a7",
+        "name": "Sampling Interval",
+        "label": "Sampling Interval",
+        "tooltip": "",
+        "group": "7ca74350246ab9dc",
+        "order": 1,
+        "width": 10,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "60",
+        "step": 1,
+        "className": "",
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [
+                "46b17ecc6a828bef"
+            ]
+        ]
+    },
+    {
+        "id": "ad1c2a425582a0bc",
+        "type": "ui_slider",
+        "z": "78af776769b0f7a7",
+        "name": "Sending Interval",
+        "label": "Sending Interval",
+        "tooltip": "",
+        "group": "7ca74350246ab9dc",
+        "order": 3,
+        "width": 10,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "0.5",
+        "max": "30",
+        "step": "0.5",
+        "className": "",
+        "x": 480,
+        "y": 820,
+        "wires": [
+            [
+                "92dbf43681e18e13"
+            ]
+        ]
+    },
+    {
+        "id": "e82e9f75d3017211",
+        "type": "mqtt out",
+        "z": "78af776769b0f7a7",
+        "name": "",
+        "topic": "sample_interval",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4692ee19bc958e0c",
+        "x": 1160,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "0e9e8caf96efdd6a",
+        "type": "mqtt out",
+        "z": "78af776769b0f7a7",
+        "name": "",
+        "topic": "send_interval",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4692ee19bc958e0c",
+        "x": 1150,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "6a421119da810674",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "7ca74350246ab9dc",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "name": "Sampling interval",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#ffffff",
+        "x": 1350,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "63d449d921c15cf0",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "7ca74350246ab9dc",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "name": "Sending interval",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#ffffff",
+        "x": 1360,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "939cc0c642741b13",
+        "type": "ui_chart",
+        "z": "78af776769b0f7a7",
+        "name": "Light intensity chart",
+        "group": "7ca74350246ab9dc",
+        "order": 5,
+        "width": 12,
+        "height": 5,
+        "label": "Light Intensity Variation",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "cubic",
+        "nodata": "Light Intensity Variation Chart",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1",
+        "removeOlder": "1",
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#0fc41d",
+            "#00ff00",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8548b2db6f10ba4",
+        "type": "ui_slider",
+        "z": "78af776769b0f7a7",
+        "name": "Minimum Angle",
+        "label": "",
+        "tooltip": "",
+        "group": "52bf5e79fdd592ce",
+        "order": 2,
+        "width": 7,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "120",
+        "step": 1,
+        "className": "",
+        "x": 440,
+        "y": 1400,
+        "wires": [
+            [
+                "ec2ec774acc19fd6",
+                "a947eca4070ef315"
+            ]
+        ]
+    },
+    {
+        "id": "790cd9c809141bbf",
+        "type": "ui_slider",
+        "z": "78af776769b0f7a7",
+        "name": "Controlling Factor",
+        "label": "",
+        "tooltip": "",
+        "group": "52bf5e79fdd592ce",
+        "order": 5,
+        "width": 7,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1",
+        "step": "0.01",
+        "className": "",
+        "x": 1310,
+        "y": 1400,
+        "wires": [
+            [
+                "f5c6221e90d61fc1",
+                "859def2314c9639d"
+            ]
+        ]
+    },
+    {
+        "id": "e38d2bf2c1930951",
+        "type": "ui_slider",
+        "z": "78af776769b0f7a7",
+        "name": "Medicine Temperature",
+        "label": "",
+        "tooltip": "",
+        "group": "52bf5e79fdd592ce",
+        "order": 8,
+        "width": 7,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "10",
+        "max": "40",
+        "step": 1,
+        "className": "",
+        "x": 2200,
+        "y": 1400,
+        "wires": [
+            [
+                "9df4ea1a71a4f29c",
+                "0eaf816c504a1fd2"
+            ]
+        ]
+    },
+    {
+        "id": "247c7130e5210d72",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "52bf5e79fdd592ce",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "name": "θ_offset value",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#ffffff",
+        "x": 780,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "f5c6221e90d61fc1",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "52bf5e79fdd592ce",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "name": "controlling factor value",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#ffffff",
+        "x": 1620,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "a8b0db1f6e4955c2",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "52bf5e79fdd592ce",
+        "order": 9,
+        "width": 2,
+        "height": 1,
+        "name": "Sampling interval value",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#ffffff",
+        "x": 2670,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "1215b2e2e7be3fb8",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "52bf5e79fdd592ce",
+        "order": 1,
+        "width": 4,
+        "height": 1,
+        "name": "Minimum Angle",
+        "label": "Minimum Angle (θ_offset)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 440,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "9b572af42d8e794c",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "52bf5e79fdd592ce",
+        "order": 4,
+        "width": 4,
+        "height": 1,
+        "name": "controlling factor",
+        "label": "Controlling Factor (γ)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1300,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "de87f1d011604943",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "52bf5e79fdd592ce",
+        "order": 7,
+        "width": 4,
+        "height": 1,
+        "name": "Medicine Temperature",
+        "label": "Medicine Temperature",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 2200,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "9df4ea1a71a4f29c",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "add \"°C\"",
+        "func": "msg.payload = msg.payload + \" °C\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2440,
+        "y": 1480,
+        "wires": [
+            [
+                "a8b0db1f6e4955c2"
+            ]
+        ]
+    },
+    {
+        "id": "ec2ec774acc19fd6",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "add \"°\"",
+        "func": "msg.payload = msg.payload + \"°\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1480,
+        "wires": [
+            [
+                "247c7130e5210d72"
+            ]
+        ]
+    },
+    {
+        "id": "19524d2a795c258c",
+        "type": "ui_gauge",
+        "z": "78af776769b0f7a7",
+        "name": "",
+        "group": "52bf5e79fdd592ce",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Servo Motor Angle",
+        "label": "degrees",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "180",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 370,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "28f01d933f2da670",
+        "type": "mqtt in",
+        "z": "78af776769b0f7a7",
+        "name": "",
+        "topic": "servo_angle",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4692ee19bc958e0c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1640,
+        "wires": [
+            [
+                "19524d2a795c258c"
+            ]
+        ]
+    },
+    {
+        "id": "a947eca4070ef315",
+        "type": "mqtt out",
+        "z": "78af776769b0f7a7",
+        "name": "",
+        "topic": "offset",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4692ee19bc958e0c",
+        "x": 750,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "859def2314c9639d",
+        "type": "mqtt out",
+        "z": "78af776769b0f7a7",
+        "name": "",
+        "topic": "gamma",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4692ee19bc958e0c",
+        "x": 1580,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "0eaf816c504a1fd2",
+        "type": "mqtt out",
+        "z": "78af776769b0f7a7",
+        "name": "",
+        "topic": "T_med",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4692ee19bc958e0c",
+        "x": 2620,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "f4f1e53f9fa1d5a4",
+        "type": "ui_text",
+        "z": "78af776769b0f7a7",
+        "group": "7ca74350246ab9dc",
+        "order": 13,
+        "width": 4,
+        "height": 3,
+        "name": "Most recent light intensity",
+        "label": "Light Intensity",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#ffffff",
+        "x": 550,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "de6fef10a2aca764",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "add \"s\"",
+        "func": "msg.payload = msg.payload + \" s\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 560,
+        "wires": [
+            [
+                "6a421119da810674"
+            ]
+        ]
+    },
+    {
+        "id": "d7f94b31575a2a92",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "add \"min\"",
+        "func": "msg.payload = msg.payload + \" min\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 940,
+        "wires": [
+            [
+                "63d449d921c15cf0"
+            ]
+        ]
+    },
+    {
+        "id": "46b17ecc6a828bef",
+        "type": "change",
+        "z": "78af776769b0f7a7",
+        "name": "newSamplingRate",
+        "rules": [
+            {
+                "t": "set",
+                "p": "newSamplingRate",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "d819840fc1cc77c4"
+            ]
+        ]
+    },
+    {
+        "id": "c1e1aae9782230ed",
+        "type": "inject",
+        "z": "78af776769b0f7a7",
+        "name": "initalize minimum angle slide",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "30",
+        "payloadType": "num",
+        "x": 180,
+        "y": 1400,
+        "wires": [
+            [
+                "a8548b2db6f10ba4"
+            ]
+        ]
+    },
+    {
+        "id": "9e5d0d8f20bcba51",
+        "type": "inject",
+        "z": "78af776769b0f7a7",
+        "name": "initalize controlling factor slide",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "0.75",
+        "payloadType": "num",
+        "x": 1030,
+        "y": 1400,
+        "wires": [
+            [
+                "790cd9c809141bbf"
+            ]
+        ]
+    },
+    {
+        "id": "aaa58cd6c5a81640",
+        "type": "inject",
+        "z": "78af776769b0f7a7",
+        "name": "initalize medicine temperature slide",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "30",
+        "payloadType": "num",
+        "x": 1900,
+        "y": 1400,
+        "wires": [
+            [
+                "e38d2bf2c1930951"
+            ]
+        ]
+    },
+    {
+        "id": "b36198b36cfbc460",
+        "type": "inject",
+        "z": "78af776769b0f7a7",
+        "name": "initalize sampling rate slide",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 220,
+        "y": 480,
+        "wires": [
+            [
+                "92227af05ce2c2dd"
+            ]
+        ]
+    },
+    {
+        "id": "2c774321a30606e7",
+        "type": "inject",
+        "z": "78af776769b0f7a7",
+        "name": "initalize sending rate slide",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "x": 210,
+        "y": 820,
+        "wires": [
+            [
+                "ad1c2a425582a0bc"
+            ]
+        ]
+    },
+    {
+        "id": "d819840fc1cc77c4",
+        "type": "switch",
+        "z": "78af776769b0f7a7",
+        "name": "Switch1",
+        "property": "newSamplingRate",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "currentSendingRate",
+                "vt": "flow"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 900,
+        "y": 480,
+        "wires": [
+            [
+                "e82e9f75d3017211",
+                "de6fef10a2aca764",
+                "bf35b736d3d2f057"
+            ],
+            [
+                "fd7c7facb25d75d6",
+                "c733605e1daae1ba"
+            ]
+        ]
+    },
+    {
+        "id": "92dbf43681e18e13",
+        "type": "change",
+        "z": "78af776769b0f7a7",
+        "name": "newSendingRate",
+        "rules": [
+            {
+                "t": "set",
+                "p": "newSendingRate",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 820,
+        "wires": [
+            [
+                "7138782ea3da310d"
+            ]
+        ]
+    },
+    {
+        "id": "fd7c7facb25d75d6",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "warning",
+        "func": "\nreturn {\"payload\":\"Sampling rate must be lower then the Sending rate\",\"topic\":\"warning\"};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 660,
+        "wires": [
+            [
+                "bc4e462380837ad9"
+            ]
+        ]
+    },
+    {
+        "id": "bc4e462380837ad9",
+        "type": "ui_toast",
+        "z": "78af776769b0f7a7",
+        "position": "top left",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "warning Notification",
+        "x": 1350,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "7138782ea3da310d",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "convert to seconds",
+        "func": "let mins = flow.get(\"newSendingRate\") * 60\nflow.set(\"newSendingRate\", mins);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 880,
+        "wires": [
+            [
+                "f68553c8802b0517"
+            ]
+        ]
+    },
+    {
+        "id": "f68553c8802b0517",
+        "type": "switch",
+        "z": "78af776769b0f7a7",
+        "name": "Switch2",
+        "property": "newSendingRate",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "currentSamplingRate",
+                "vt": "flow"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 920,
+        "y": 880,
+        "wires": [
+            [
+                "0e9e8caf96efdd6a",
+                "d7f94b31575a2a92",
+                "61d5ba7aa801edd5"
+            ],
+            [
+                "abbc279a9c0fd82d",
+                "dbc44fbbb3bdb6d6"
+            ]
+        ]
+    },
+    {
+        "id": "abbc279a9c0fd82d",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "warning",
+        "func": "\nreturn {\"payload\":\"Sending rate must be higher then the Sampling rate\",\"topic\":\"warning\"};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 1040,
+        "wires": [
+            [
+                "c775f31e118656da"
+            ]
+        ]
+    },
+    {
+        "id": "c775f31e118656da",
+        "type": "ui_toast",
+        "z": "78af776769b0f7a7",
+        "position": "top left",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "warning Notification",
+        "x": 1370,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "61d5ba7aa801edd5",
+        "type": "change",
+        "z": "78af776769b0f7a7",
+        "name": "value_update",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentSendingRate",
+                "pt": "flow",
+                "to": "newSendingRate",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf35b736d3d2f057",
+        "type": "change",
+        "z": "78af776769b0f7a7",
+        "name": "value_update",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentSamplingRate",
+                "pt": "flow",
+                "to": "newSamplingRate",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2105214b245ed97e",
+        "type": "inject",
+        "z": "78af776769b0f7a7",
+        "name": "initalize sampling rate",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "df2e239bb954af4d"
+            ]
+        ]
+    },
+    {
+        "id": "7875602ce452c459",
+        "type": "inject",
+        "z": "78af776769b0f7a7",
+        "name": "initalize sending rate",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "120",
+        "payloadType": "num",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "1e0b705358b3fd05"
+            ]
+        ]
+    },
+    {
+        "id": "df2e239bb954af4d",
+        "type": "change",
+        "z": "78af776769b0f7a7",
+        "name": "currentSamplingRate initialize",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentSamplingRate",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e0b705358b3fd05",
+        "type": "change",
+        "z": "78af776769b0f7a7",
+        "name": "currentSendingRate initialize",
+        "rules": [
+            {
+                "t": "set",
+                "p": "currentSendingRate",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c733605e1daae1ba",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "reload previous value",
+        "func": "msg.payload = flow.get(\"currentSamplingRate\")\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 660,
+        "wires": [
+            [
+                "92227af05ce2c2dd"
+            ]
+        ]
+    },
+    {
+        "id": "dbc44fbbb3bdb6d6",
+        "type": "function",
+        "z": "78af776769b0f7a7",
+        "name": "reload previous value",
+        "func": "msg.payload = flow.get(\"currentSendingRate\")/60\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 1100,
+        "wires": [
+            [
+                "ad1c2a425582a0bc"
+            ]
+        ]
+    }
+]
