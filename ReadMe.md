@@ -1,4 +1,4 @@
-# Smart Medibox 🚨💊
+# Smart Medibox 💊
 
 ![Medibox Simulation Part1](https://drive.google.com/file/d/11awVlbJ9S1ox487SCqrMmVtYjj-3p9oe/view?usp=drive_link)
 
