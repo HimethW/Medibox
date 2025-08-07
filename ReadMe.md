@@ -32,4 +32,4 @@ graph LR
     A[Wokwi Simulation] -->|MQTT| B(Node-RED)
     B -->|MQTT| A
     B --> C[(Database)]
-    D[Dashboard] --> B
+    D[User] --> B
